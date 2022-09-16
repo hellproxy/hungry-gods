@@ -1,5 +1,6 @@
 import { graphql, HeadFC } from "gatsby"
 import React, { FC } from "react"
+import "../styles/phb.overrides.css"
 
 type Props = {
   data: {
@@ -39,10 +40,12 @@ const Template: FC<Props> = ({ data }) => {
   const { markdownRemark } = data // data.markdownRemark holds your post data
   const { html } = markdownRemark
   return (
-    <div
-      className="markdown-content phb"
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
+    <div className="markdown-content phb">
+      <div
+        className="page-content"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
+    </div>
   )
 }
 
