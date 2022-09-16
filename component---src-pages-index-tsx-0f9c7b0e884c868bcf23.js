@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkhungry_gods=self.webpackChunkhungry_gods||[]).push([[691],{7200:function(u,n,e){e.r(n);n.default=function(){return null}}}]);
+//# sourceMappingURL=component---src-pages-index-tsx-0f9c7b0e884c868bcf23.js.map
