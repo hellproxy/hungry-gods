@@ -1,3 +1,19 @@
-.layout {
-  min-height: 100vh;
+.page {
+  height: 100%;
+}
+
+.header {
+  height: 30px;
+  background-color: #333;
+  font-family: MrJeeves;
+  font-size: 0.6cm;
+  color: white;
+  padding: 0 5mm;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.body {
+  height: calc(100% - 30px);
 }

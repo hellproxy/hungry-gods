@@ -6,5 +6,10 @@ interface Props {
 }
 
 export const Layout: FC<Props> = ({ children }) => {
-  return <div className="layout">{children}</div>
+  return (
+    <nav className="page">
+      <div className="header">Hungry Gods</div>
+      <div className="body">{children}</div>
+    </nav>
+  )
 }
