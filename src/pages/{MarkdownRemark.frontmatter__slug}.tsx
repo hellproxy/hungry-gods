@@ -1,12 +1,9 @@
+import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { graphql, HeadFC, Link } from "gatsby"
-import React, { FC, useState } from "react"
+import React, { FC } from "react"
+import { useLocalStorage } from "usehooks-ts"
 import "../styles/markdown-page.css"
-import {
-  faCoffee,
-  faCaretRight,
-  faCaretLeft
-} from "@fortawesome/free-solid-svg-icons"
 
 type Props = {
   data: {
@@ -56,14 +53,15 @@ const Template: FC<Props> = ({ data }) => {
   const { markdownRemark } = data // data.markdownRemark holds your post data
   const { html, headings } = markdownRemark
 
-  const [closed, setClosed] = useState(false)
-  const closedClass = closed ? "closed" : ""
-  const caret = closed ? faCaretRight : faCaretLeft
+  const [navState, setNavState] = useLocalStorage("nav-tray-state", "open")
+  const caret = navState === "open" ? faCaretLeft : faCaretRight
+  const toggleNavState = (state: string) =>
+    state === "open" ? "closed" : "open"
 
   return (
     <div className="markdown-phb-style phb">
-      <div className={`nav-tray-container ${closedClass}`}>
-        <div className={`nav-tray ${closedClass}`}>
+      <div className={`nav-tray-container ${navState}`}>
+        <div className={`nav-tray ${navState}`}>
           {headings.map(({ depth, value, id }) => (
             <Link className="nav-link" to={`#${id}`}>
               <h4
@@ -76,7 +74,7 @@ const Template: FC<Props> = ({ data }) => {
           ))}
         </div>
       </div>
-      <div className="nav-expand" onClick={() => setClosed((c) => !c)}>
+      <div className="nav-expand" onClick={() => setNavState(toggleNavState)}>
         <FontAwesomeIcon icon={caret} size="lg" color="#EEE5CE" />
       </div>
       <div className="markdown-align">
