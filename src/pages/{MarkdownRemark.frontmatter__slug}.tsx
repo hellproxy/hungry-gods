@@ -1,6 +1,12 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { graphql, HeadFC, Link } from "gatsby"
-import React, { FC } from "react"
+import React, { FC, useState } from "react"
 import "../styles/markdown-page.css"
+import {
+  faCoffee,
+  faCaretRight,
+  faCaretLeft
+} from "@fortawesome/free-solid-svg-icons"
 
 type Props = {
   data: {
@@ -50,19 +56,28 @@ const Template: FC<Props> = ({ data }) => {
   const { markdownRemark } = data // data.markdownRemark holds your post data
   const { html, headings } = markdownRemark
 
+  const [closed, setClosed] = useState(false)
+  const closedClass = closed ? "closed" : ""
+  const caret = closed ? faCaretRight : faCaretLeft
+
   return (
     <div className="markdown-phb-style phb">
-      <div className="nav-tray">
-        {headings.map(({ depth, value, id }) => (
-          <Link className="nav-link" to={`#${id}`}>
-            <h4
-              className="nav-item"
-              style={{ marginLeft: `${(depth - 1) * 3}mm` }}
-            >
-              {value}
-            </h4>
-          </Link>
-        ))}
+      <div className={`nav-tray-container ${closedClass}`}>
+        <div className={`nav-tray ${closedClass}`}>
+          {headings.map(({ depth, value, id }) => (
+            <Link className="nav-link" to={`#${id}`}>
+              <h4
+                className="nav-item"
+                style={{ marginLeft: `${(depth - 1) * 3}mm` }}
+              >
+                {value}
+              </h4>
+            </Link>
+          ))}
+        </div>
+      </div>
+      <div className="nav-expand" onClick={() => setClosed((c) => !c)}>
+        <FontAwesomeIcon icon={caret} size="lg" color="#EEE5CE" />
       </div>
       <div className="markdown-align">
         <div
