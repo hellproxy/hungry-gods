@@ -1,6 +1,6 @@
 .library {
   width: 300px;
-  height: calc(100vh - 31px);
+  height: calc(100vh - 30px);
   position: fixed;
   background-color: #333;
   top: 30px;
