@@ -1,5 +1,6 @@
 .page {
   height: 100%;
+  overflow-x: hidden;
 }
 
 .header {
@@ -9,6 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 25;
 }
 
 .body {

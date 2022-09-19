@@ -1,0 +1,41 @@
+.library {
+  width: 300px;
+  height: calc(100vh - 31px);
+  position: fixed;
+  background-color: #333;
+  top: 30px;
+  right: 0;
+  z-index: 20;
+  overflow-y: auto;
+}
+
+.hidden {
+  transform: translateX(300%);
+  transition: transform 0.3s ease-in;
+}
+
+.visible {
+  transform: translateX(0);
+  transition: transform 0.3s ease-out;
+}
+
+.library * li {
+  border-top: 1px solid #525252;
+  padding: 10px;
+}
+
+.library * a {
+  font-family: MrJeeves;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.library * span {
+  font-size: 0.6cm;
+}
+
+.book-icon {
+  margin-right: 10px;
+}
