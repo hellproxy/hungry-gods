@@ -1,0 +1,28 @@
+.library-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.7px solid lightgrey;
+  max-width: 10vw;
+  min-width: 40px;
+  min-height: 20px;
+  margin: 10px;
+  background-color: transparent;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.library-button:hover {
+  background-color: rgb(33, 48, 48);
+}
+
+.library-button:active {
+  background: darkslategrey;
+}
+
+.library-text {
+  font-family: MrJeeves;
+  font-size: 0.4cm;
+  color: white;
+  margin-right: 5px;
+}

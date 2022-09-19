@@ -5,9 +5,6 @@
 .header {
   height: 30px;
   background-color: #333;
-  font-family: MrJeeves;
-  font-size: 0.6cm;
-  color: white;
   padding: 0 5mm;
   display: flex;
   justify-content: center;
@@ -16,4 +13,27 @@
 
 .body {
   height: calc(100% - 30px);
+}
+
+.title,
+.left-align,
+.right-align {
+  width: calc(100% / 3);
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  justify-content: center;
+  font-family: MrJeeves;
+  font-size: 0.6cm;
+  color: white;
+}
+
+.left-align {
+  justify-content: left;
+}
+
+.right-align {
+  justify-content: right;
 }
