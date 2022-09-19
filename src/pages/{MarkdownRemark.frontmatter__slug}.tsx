@@ -1,9 +1,10 @@
 import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { graphql, HeadFC, Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 import React, { FC } from "react"
 import { useLocalStorage } from "usehooks-ts"
 import "../styles/markdown-page.css"
+import "../styles/phb-overrides.css"
 
 type Props = {
   data: {
@@ -37,18 +38,6 @@ export const pageQuery = graphql`
   }
 `
 
-export const Head: HeadFC = () => (
-  <>
-    <title>Hungry Gods</title>
-    <link
-      href="https://cdn.jsdelivr.net/gh/naturalcrit/homebrewery/phb.standalone.css"
-      rel="stylesheet"
-      type="text/css"
-      crossOrigin=""
-    />
-  </>
-)
-
 const Template: FC<Props> = ({ data }) => {
   const { markdownRemark } = data // data.markdownRemark holds your post data
   const { html, headings } = markdownRemark
@@ -59,7 +48,7 @@ const Template: FC<Props> = ({ data }) => {
     state === "open" ? "closed" : "open"
 
   return (
-    <div className="markdown-phb-style phb">
+    <main className="main-page phb phb-overrides">
       <div className={`nav-tray-container ${navState}`}>
         <div className={`nav-tray ${navState}`}>
           {headings.map(({ depth, value, id }) => (
@@ -83,8 +72,9 @@ const Template: FC<Props> = ({ data }) => {
           dangerouslySetInnerHTML={{ __html: html }}
         />
       </div>
-    </div>
+    </main>
   )
 }
 
 export default Template
+export { Head } from "../components/Head"

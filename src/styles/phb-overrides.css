@@ -1,0 +1,13 @@
+.phb-overrides.phb {
+  column-width: unset;
+  column-count: unset;
+  width: 100%;
+  height: 100%;
+  -webkit-column-width: unset;
+  -webkit-column-count: unset;
+  -webkit-column-gap: unset;
+}
+
+.phb-overrides.phb::after {
+  content: none;
+}

@@ -1,18 +1,6 @@
-.markdown-phb-style.phb {
-  column-width: unset;
-  column-count: unset;
-  width: 100%;
+.main-page.phb {
   display: flex;
-  height: 100%;
   padding: 0;
-
-  -webkit-column-width: unset;
-  -webkit-column-count: unset;
-  -webkit-column-gap: unset;
-}
-
-.markdown-phb-style.phb::after {
-  content: none;
 }
 
 .nav-tray-container {
