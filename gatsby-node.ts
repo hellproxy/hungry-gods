@@ -5,7 +5,7 @@ export const createPages: GatsbyNode["createPages"] = ({ actions }) => {
 
   createRedirect({
     fromPath: `/`,
-    toPath: `/lore`,
+    toPath: `/races`,
     redirectInBrowser: true,
     isPermanent: true
   })

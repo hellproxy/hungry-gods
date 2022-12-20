@@ -4,9 +4,9 @@ import { Link } from "gatsby"
 import React, { FC, RefObject } from "react"
 import "../styles/library.css"
 
-const links = [
-  { link: "/lore", name: "Lore" },
-  { link: "/characters", name: "Characters" },
+export const links = [
+  // { link: "/lore", name: "Lore" },
+  // { link: "/characters", name: "Characters" },
   { link: "/races", name: "Races" }
 ]
 
