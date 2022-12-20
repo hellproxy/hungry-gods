@@ -51,14 +51,14 @@ const Template: FC<Props> = ({ data }) => {
     <main className="main-page phb phb-overrides">
       <div className={`nav-tray-container ${navState}`}>
         <div className={`nav-tray ${navState}`}>
-          {headings.map(({ depth, value, id }) => (
-            <Link className="nav-link" to={`#${id}`}>
-              <h4
+          {headings.map(({ depth, value, id }, index) => (
+            <Link key={index} className="nav-link" to={`#${id}`}>
+              <div
                 className="nav-item"
                 style={{ marginLeft: `${(depth - 1) * 3}mm` }}
               >
-                {value}
-              </h4>
+                <h4>{value}</h4>
+              </div>
             </Link>
           ))}
         </div>

@@ -23,3 +23,12 @@
   color: unset;
   line-height: unset;
 }
+
+.phb-overrides.phb h1,
+.phb-overrides.phb h2,
+.phb-overrides.phb h3,
+.phb-overrides.phb h4,
+.phb-overrides.phb h5,
+.phb-overrides.phb h6 {
+  display: inline-block;
+}

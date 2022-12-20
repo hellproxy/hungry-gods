@@ -1,10 +1,11 @@
 .page {
   height: 100%;
+  display: flex;
+  flex-flow: column;
   overflow-x: hidden;
 }
 
 .header {
-  height: 30px;
   background-color: #333;
   padding: 0 5mm;
   display: flex;
@@ -13,8 +14,40 @@
   z-index: 25;
 }
 
+.pane {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: inline-flex;
+}
+
 .body {
-  height: calc(100% - 30px);
+  flex: 1 1 auto;
+}
+
+.library-seam {
+  width: 0;
+  position: relative;
+}
+
+.library-drawer {
+  width: 300px;
+  height: 100%;
+  position: absolute;
+  background-color: #333;
+  right: 0;
+  z-index: 20;
+  overflow-y: auto;
+}
+
+.hidden {
+  transform: translateX(300px);
+  transition: transform 0.3s ease-in;
+}
+
+.visible {
+  transform: translateX(0);
+  transition: transform 0.3s ease-out;
 }
 
 .title,
@@ -30,6 +63,7 @@
   font-family: MrJeeves;
   font-size: 0.6cm;
   color: white;
+  margin: 2mm 0;
 }
 
 .left-align {

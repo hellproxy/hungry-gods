@@ -1,5 +1,5 @@
 import React, { FC, useRef, useState } from "react"
-import { useOnClickOutside } from "usehooks-ts"
+import { useOnClickOutside } from "../hooks/useOnClickOutside"
 import "../styles/layout.css"
 import { Library } from "./Library"
 import { LibraryButton } from "./LibraryButton"
@@ -9,26 +9,31 @@ interface Props {
 }
 
 export const Layout: FC<Props> = ({ children }) => {
-  const ref = useRef<HTMLDivElement>(null)
+  const headerRef = useRef<HTMLDivElement>(null)
+  const libraryRef = useRef<HTMLDivElement>(null)
   const [libraryVisible, setLibraryVisible] = useState(false)
 
-  console.log(`Ref: ${ref.current}`)
+  const visibleClass = libraryVisible ? "visible" : "hidden"
 
-  useOnClickOutside(ref, () => setLibraryVisible(false))
+  useOnClickOutside([headerRef, libraryRef], () => setLibraryVisible(false))
 
   return (
     <nav className="page">
-      <div className="header-and-library" ref={ref}>
-        <div className="header">
-          <div className="left-align" />
-          <div className="title">Hungry Gods</div>
-          <div className="right-align">
-            <LibraryButton onClick={() => setLibraryVisible((v) => !v)} />
+      <div className="header" ref={headerRef}>
+        <div className="left-align" />
+        <div className="title">Hungry Gods</div>
+        <div className="right-align">
+          <LibraryButton onClick={() => setLibraryVisible((v) => !v)} />
+        </div>
+      </div>
+      <div className="pane">
+        <div className="body">{children}</div>
+        <div className="library-seam">
+          <div className={`library-drawer ${visibleClass}`} ref={libraryRef}>
+            <Library />
           </div>
         </div>
-        <Library visible={libraryVisible} />
       </div>
-      <div className="body">{children}</div>
     </nav>
   )
 }

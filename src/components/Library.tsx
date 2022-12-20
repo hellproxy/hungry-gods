@@ -1,7 +1,7 @@
 import { faBook } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Link } from "gatsby"
-import React, { FC } from "react"
+import React, { FC, RefObject } from "react"
 import "../styles/library.css"
 
 const links = [
@@ -10,12 +10,8 @@ const links = [
   { link: "/races", name: "Races" }
 ]
 
-interface Props {
-  visible: boolean
-}
-
-export const Library: FC<Props> = ({ visible }) => (
-  <div className={`library ${visible ? "visible" : "hidden"}`}>
+export const Library: FC<{}> = () => (
+  <div className="library">
     <ul>
       {links.map(({ link, name }, index) => (
         <li key={index}>
