@@ -42,7 +42,7 @@ const Template: FC<Props> = ({ data }) => {
   const { markdownRemark } = data // data.markdownRemark holds your post data
   const { html, headings } = markdownRemark
 
-  const [navState, setNavState] = useLocalStorage("nav-tray-state", "open")
+  const [navState, setNavState] = useLocalStorage("nav-tray-state", "closed")
   const caret = navState === "open" ? faCaretLeft : faCaretRight
   const toggleNavState = (state: string) =>
     state === "open" ? "closed" : "open"
