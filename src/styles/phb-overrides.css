@@ -11,3 +11,15 @@
 .phb-overrides.phb::after {
   content: none;
 }
+
+.phb-overrides.phb p {
+  font-size: 0.425cm;
+}
+
+.phb-overrides.phb h1 + p::first-letter {
+  float: unset;
+  font-family: unset;
+  font-size: unset;
+  color: unset;
+  line-height: unset;
+}

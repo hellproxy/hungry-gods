@@ -6,7 +6,8 @@ import "../styles/library.css"
 
 const links = [
   { link: "/lore", name: "Lore" },
-  { link: "/characters", name: "Characters" }
+  { link: "/characters", name: "Characters" },
+  { link: "/races", name: "Races" }
 ]
 
 interface Props {

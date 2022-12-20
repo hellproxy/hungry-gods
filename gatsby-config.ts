@@ -12,10 +12,23 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     "gatsby-plugin-mdx",
+    "gatsby-plugin-sharp",
+    "gatsby-plugin-image",
+    "gatsby-transformer-sharp",
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: "gatsby-transformer-remark",
       options: {
-        plugins: [`gatsby-remark-autolink-headers`]
+        plugins: [
+          "gatsby-remark-autolink-headers",
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 800,
+              backgroundColor: "transparent",
+              disableBgImageOnAlpha: true
+            }
+          }
+        ]
       }
     },
     {
@@ -33,6 +46,14 @@ const config: GatsbyConfig = {
         path: "./src/markdown-pages/"
       },
       __key: "markdown-pages"
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: "./src/images"
+      },
+      __key: "images"
     }
   ]
 }
